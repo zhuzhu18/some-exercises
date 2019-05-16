@@ -1,0 +1,23 @@
+import numpy as np
+
+a = np.array([1,2,3])
+b = np.tile(a, reps=[4,1])       # 测试np.tile函数的作用
+print(b)
+'''
+沿着x方向和y方向堆叠
+[[1 2 3]
+ [1 2 3]
+ [1 2 3]
+ [1 2 3]]
+'''
+m = np.linspace(0,7,8).reshape(2,2,2)
+n = np.expand_dims(np.array([2,3]), axis=0)     # 扩展成1行2列
+print(m+n)
+'''
+广播机制
+[[[  2.   4.]
+  [  4.   6.]]
+
+ [[  6.   8.]
+  [  8.  10.]]]
+'''
