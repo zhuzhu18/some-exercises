@@ -1,0 +1,21 @@
+import numpy as np
+
+# numpy默认创建的数组类型为np.int64或者np.float64
+a = np.array([[1,2,3],[4,5,6]])
+
+'''
+np.ravel将数组拉平,但返回的是数组的视图,不是拷贝,相当于reshape
+修改拉平后元素的值会改变原先数组对应元素的值
+'''
+m = np.ravel(a, order='C')       # 以C语言风格拉平,即先从最后一维开始索引
+print(m)                     # [1 2 3 4 5 6]
+n = np.ravel(a, order='F')       # 以Fortran语言风格拉平,即先从第一维开始索引
+print(n)                     # [1 4 2 5 3 6]
+m[2] = 100                   # a也会变为[[1,2,100],[4,5,6]]
+
+'''
+np.flatten将数组拉平,返回的是数组的拷贝,而不是视图
+'''
+b = a.flatten(order='C')
+b[3] = 200
+print(a)               # [[  1   2 100], [  4   5   6]]
