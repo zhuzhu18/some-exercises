@@ -14,7 +14,7 @@ def fizz_buzz_decode(i, prediction):
     return [str(i), 'fizz', 'buzz', 'fizz_buzz'][prediction]
 
 def binary_encode(i, num_digits):
-    return [i >> d & 1for d in range(num_digits)][::-1]
+    return [i >> d & 1 for d in range(num_digits)][::-1]
 
 NUM_DIGITS = 10
 trX = torch.Tensor([binary_encode(i, NUM_DIGITS) for i in range(101, 2**NUM_DIGITS)])
